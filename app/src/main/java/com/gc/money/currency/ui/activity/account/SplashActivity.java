@@ -111,7 +111,7 @@ public class SplashActivity extends CheckPermissionActivity {
         TreeMap<String, String> hashMap = new TreeMap<>();
         hashMap.put("version", "1.5");
         hashMap.put("channelCode", "google");
-        hashMap.put("vestCode", "NJVMWDA5");
+        hashMap.put("vestCode", HttpUrl.vest_code);
         String deviceId = DeviceUtil.getDeviceId();
         hashMap.put("deviceId", deviceId);
         String time = "" + System.currentTimeMillis() / 1000;
