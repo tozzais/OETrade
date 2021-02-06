@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_bg">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+
+    <TextView
+        android:id="@+id/tv_title1"
+        style="@style/base_text_style"
+        android:text="title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="12dp"
+        android:layout_centerInParent="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/base_text_style_gray_small"
+        android:text="2020-0708"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_marginLeft="12dp"
+        android:layout_centerInParent="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_content"
+        style="@style/base_text_style"
+        android:text="2020-0708"
+        android:layout_margin="12dp"
+        android:layout_centerInParent="true"
+        />
+
+
+
+
+
+
+</LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

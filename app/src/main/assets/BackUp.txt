@@ -1,0 +1,49 @@
+
+测试账号：
+9903836067 7892
+测试支付
+{"textToken":"4c76af61cff64f0eaf53b979a5dad95b1589004217431","orderId":"200509140337324010035976","mid":"Linkyu54856150677749","amount":"100.0"}
+
+应用名称： Digital Coin
+appId： MLiTHibcOp9JdbMKFvVal9
+appSecret： IL3P8M0Bpf6wgjm8Na7qA
+appKey： DtgNj4uywg6bnL85KwAqq7
+应用包名： com.gaocheng.digital.coin
+应用签名： 2F:4F:DE:7D:52:4D:2F:82:78:4B:28:8F:2C:3A:03:AB:6C:CB:55:02:C2:DF:05:66:2C:B4:E7:8A:DB:5C:C8:95
+masterSecret：
+【个推】 BzGAAtR7fj5iib3DzSP8J
+
+
+branch的  Default Link Domain：digita.app.link
+Alternate Link Domain：digita-alternate.app.link
+ Branch Key：key_live_mlJG3gPgMZAX4KZ3RGzS0lcfDwhkhQY5
+ Branch Secret：secret_live_RfWl7KUvoPsGwcl0rWiv3DwB5RwHYMSF
+
+ 服务器：api.ut576.com 马甲code：NJVMWDA5
+
+ adjust 应用识别码 7tmrg3qbrclc
+ Facebook应用编号：572285397019293
+
+paytm掉起 我再点返回 就退出App了  （https://app.joykeyer.com/这个测支付的跳转 7526812579
+abc123456 账号密码登录 ）
+
+ 支付测试：
+ https://app.joykeyer.com/
+ 账号
+ 9999988888
+ 888888
+
+ 获取设备号测试
+ https://manage.mufg24.com/admin/app_bridge.html
+
+ 谷歌登录测试
+ https://app.goex24.com/en_us/?sign=GOEX24Pro
+
+ 生成隐私条款网站
+ https://www.websitepolicies.com/users/login
+
+
+ //socket
+ socket 地址：wss://uc.gzsycs.com/ws.do
+
+ 这里订阅 socket 推送的时候，发送的参数。103 是订阅全部。就是那个数字币列表。101 是订阅单个数字币，就是点进某个数字币，里面界面也会有价格、涨跌幅那些变化

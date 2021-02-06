@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BaseLibrary</string>
+
+    <string name="loading_error">"Loading failed, please try again"</string>
+    <string name="loading">"Loading..."</string>
+    <string name="error_net">"No internet"</string>
+    <string name="error_timeout">"Connection timed out"</string>
+    <string name="error_syntax">"Error parsing data"</string>
+    <string name="error_http">"Server connection error"</string>
+    <string name="data_empty">"No data"</string>
+
+    <string name="TakingPictures">"Take pictures"</string>
+    <string name="PhotoAlbum">"Choose from album"</string>
+
+    <string name="sure">"confirm"</string>
+    <string name="cancel">"cancel"</string>
+    <string name="setting">"Set up"</string>
+
+    <string name="login">log in</string>
+</resources>

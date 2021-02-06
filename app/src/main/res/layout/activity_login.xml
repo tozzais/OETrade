@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:background="@drawable/shape_gray50">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="input mobile phone number"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingBottom="12dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="12dp"
+            android:textColor="@color/black_title_color"
+            android:textColorHint="@color/grayText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_selete_phone"
+            style="@style/base_text_style"
+            android:drawablePadding="5dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="12dp"
+            android:text="中国大陆 +86"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray_line"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_gray50"
+        android:hint="Enter login password"
+        android:inputType="textPassword"
+        android:maxLength="11"
+        android:paddingBottom="12dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="12dp"
+        android:textColor="@color/black_title_color"
+        android:textColorHint="@color/grayText"
+        android:textSize="14sp" />
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_forget"
+            style="@style/click_toolbar_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="12dp"
+            android:padding="12dp"
+            android:text="forget password"
+            android:textColor="@color/black_title_color"
+            android:textSize="14sp" />
+
+        <TextView
+
+            android:id="@+id/tv_register"
+            style="@style/click_toolbar_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_margin="12dp"
+            android:padding="12dp"
+            android:text="Sign up now"
+            android:textColor="@color/black_title_color"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_login"
+        style="@style/login_btn_style"
+        android:layout_marginTop="30dp"
+        android:text="log in" />
+
+
+    <TextView
+        android:id="@+id/tv_switch"
+        android:visibility="gone"
+        style="@style/click_toolbar_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        android:drawableLeft="@mipmap/icon_switch"
+        android:drawablePadding="3dp"
+        android:padding="12dp"
+        android:text="手机验证码登录"
+        android:textColor="@color/black_title_color"
+        android:textSize="14sp" />
+
+    <View
+        style="@style/weight_view"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_weChat_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_title_color"
+            style="@style/base_text_style"
+            android:text="微信登录"
+            android:drawablePadding="5dp"
+            android:textSize="12sp"
+            android:drawableTop="@mipmap/icon_wechat"/>
+
+        <TextView
+            android:id="@+id/tv_aLiPay_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_title_color"
+            style="@style/base_text_style"
+            android:text="支付宝支付"
+            android:layout_marginLeft="50dp"
+            android:drawablePadding="5dp"
+            android:textSize="12sp"
+            android:drawableTop="@mipmap/icon_alipay"/>
+
+    </LinearLayout>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_margin="20dp"/>
+
+
+</LinearLayout>

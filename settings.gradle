@@ -1,0 +1,2 @@
+rootProject.name='OE Trade'
+include ':app', ':baselibrary', ':kchartlib'

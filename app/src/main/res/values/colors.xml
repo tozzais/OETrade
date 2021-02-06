@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="baseColor">#DF2826</color>
+    <color name="baseColorDeep">#DC0000</color>
+    <color name="gray_black_text">#666666</color>
+    <color name="color_3F9842">#3F9842</color>
+    <color name="color_FF0000">#FF0000</color>
+    <color name="color_FFFFFF">#FFFFFF</color>
+    <color name="color_8C8C8C">#8C8C8C</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_000000">#000000</color>
+    <color name="color_F2F2F2">#F2F2F2</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_D1302">#D13020</color>
+</resources>

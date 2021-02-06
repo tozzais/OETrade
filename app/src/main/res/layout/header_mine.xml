@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/shape_white_top10"
+    android:layout_marginTop="-10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            style="@style/base_text_style"
+            android:text="My service"
+            android:padding="12dp"
+            />
+
+    </LinearLayout>
+    <View
+        style="@style/line_light"
+        />
+    <LinearLayout
+        android:id="@+id/ll_collect"
+        android:visibility="gone"
+        style="@style/base_hor_style">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mine_service10"/>
+
+        <TextView
+            style="@style/base_text_style"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical"
+            android:text="my collection"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right_black_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"/>
+
+
+
+
+
+    </LinearLayout>
+    <View
+        style="@style/line_light"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_callback"
+        style="@style/base_hor_style">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mine_service5"/>
+
+        <TextView
+            style="@style/base_text_style"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical"
+            android:text="Feedback"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right_black_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <View
+        style="@style/line_light"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_aboutus"
+        style="@style/base_hor_style">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mine_service11"/>
+
+        <TextView
+            style="@style/base_text_style"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical"
+            android:text="about us"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right_black_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"/>
+
+
+
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/line_light"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_setting"
+        style="@style/base_hor_style">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/my_set_icon"/>
+
+        <TextView
+            style="@style/base_text_style"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/setting"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right_black_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"/>
+
+
+
+
+
+    </LinearLayout>
+    <View
+        style="@style/line_light"
+        />
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:visibility="gone"
+        android:layout_margin="20dp"
+        style="@style/base_btn_style_large"
+        android:text="sign out"/>
+
+
+
+
+
+
+
+</LinearLayout>

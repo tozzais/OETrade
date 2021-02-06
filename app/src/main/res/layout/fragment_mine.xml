@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@mipmap/home_bg">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statusbar_view_height"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:visibility="visible"
+            android:gravity="right">
+            <ImageView
+                android:id="@+id/iv_setting"
+                style="@style/base_click_style2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/my_set_icon_white"/>
+
+            <RelativeLayout
+                android:layout_width="30dp"
+                android:visibility="gone"
+                android:layout_marginLeft="12dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_message"
+                    android:visibility="gone"
+                    style="@style/base_click_style2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/my_msg_icon_white"
+                    />
+
+                <View
+                    android:id="@+id/dot_message"
+                    android:visibility="gone"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/shape_red50"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.gc.money.currency.weight.CircleImageView
+                android:id="@+id/vi_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/avatar_default"/>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_logined_info"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        style="@style/base_text_style"
+                        android:textColor="@color/white"
+                        android:text="倾国倾城" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_login"
+                style="@style/base_text_style"
+                android:text="@string/login"
+                android:layout_marginTop="10dp"
+                android:paddingTop="3dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="3dp"
+                android:background="@drawable/shape_line_white5"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <include
+        layout="@layout/header_mine"/>
+
+
+
+</LinearLayout>

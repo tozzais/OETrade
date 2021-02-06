@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_bg"
+    android:gravity="center_horizontal"
+    >
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/logo"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/base_text_style"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="12dp"
+        android:layout_centerInParent="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/base_text_style_gray_small"
+        android:text="Version 1.0.0"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_content"
+        style="@style/base_text_style"
+        android:lineSpacingExtra="5dp"
+        android:text="Fire Option, the entrance to the blockchain world of bitcoin, wipes out high-quality news such as new business, new technology, new venture capital, new workplace, etc. Products and services.
+Currency Quotes
+Track currency, in-depth tracking of currency news, currency community discussions, currency market, easy to check the news of each currency.
+24h Express Courier
+24-hour latest blockchain information, real-time notification, easy to understand, to help you quickly know the latest developments in the chain.
+Blockchain news
+Collect blockchain news information on the whole network and select the latest and most important news recommendations. Provide the trading volume of the major platforms in the blockchain industry and understand the industry currency circle information.
+"
+        android:layout_margin="12dp"
+        android:layout_centerInParent="true"
+        />
+
+
+
+
+
+
+</LinearLayout>

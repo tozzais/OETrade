@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "339339407432",
+    "firebase_url": "https://digital-coin-1586507622700.firebaseio.com",
+    "project_id": "digital-coin-1586507622700",
+    "storage_bucket": "digital-coin-1586507622700.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339339407432:android:55c83bd53458aecc4a287d",
+        "android_client_info": {
+          "package_name": "com.gc.money.currency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339339407432-0ri04la663inm94tnu76653lqfadivt5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gc.money.currency",
+            "certificate_hash": "859d0fd6359dfce5b7fbab8fd1bb1c36c105469e"
+          }
+        },
+        {
+          "client_id": "339339407432-s0np3phfe49f25kirrqplp7kijq63726.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOs4kY9aWunEZiIFvVqwVL2u3Mitm54RU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339339407432-s0np3phfe49f25kirrqplp7kijq63726.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
