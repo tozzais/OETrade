@@ -96,7 +96,7 @@
 
         <!-- Branch init -->
         <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_ek7pDeN1X3rrjGiXzxUnUjbarxb8CxZ6" />
-        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="secret_live_RfWl7KUvoPsGwcl0rWiv3DwB5RwHYMSF" />
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_jk6dEjNZ32tzlJo6DtQJHlogEzoYwUgh" />
         <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
 
 
