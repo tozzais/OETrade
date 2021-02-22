@@ -12,6 +12,8 @@ import com.facebook.appevents.AppEventsLogger;
 import com.gc.money.currency.global.CoinApplication;
 import com.gc.money.currency.util.DeviceUtil;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.installations.FirebaseInstallations;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.igexin.sdk.PushManager;
@@ -300,7 +302,7 @@ public class AppJs  extends Object {
         if (h5Activity instanceof H5Activity) {
             Uri uri = Uri.parse(url);
             Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
+            intent.setAction(Intent.ACTION_VIEW);
             intent.setData(uri);
             if (intent.resolveActivity(h5Activity.getPackageManager()) != null) {
                 h5Activity.startActivity(intent);
@@ -312,16 +314,17 @@ public class AppJs  extends Object {
 //    public void isContainsName(String url) {
 //
 //    }
-//    @JavascriptInterface
-//    public void openPureBrowser(String json) {
-//
-//    }
+    @JavascriptInterface
+    public void openPureBrowser(String json) {
+
+    }
 //    @JavascriptInterface
 //    public void showTitleBar(String url) {
 //
 //    }
-//    @JavascriptInterface
-//    public void takeFCMPushId(String url) {
-//
-//    }
+    @JavascriptInterface
+    public String takeFCMPushId() {
+      return FirebaseInstanceId.getInstance().getToken();
+
+    }
 }

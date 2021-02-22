@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.gc.money.currency"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -88,7 +88,6 @@ dependencies {
     implementation 'com.android.installreferrer:installreferrer:1.1.2'
     //个推
     implementation 'com.getui:sdk-for-google-play:4.3.8.0'
-//    implementation 'cn.yc:WebViewLib:1.2.2'
     implementation files('libs/PayssionSDK.jar')
 
     //facebook这里会随着升级数值发生变化
@@ -96,6 +95,7 @@ dependencies {
 
     //firebase
     implementation 'com.google.firebase:firebase-core:17.4.1'
+    implementation 'com.google.firebase:firebase-messaging:20.1.6'
 
     implementation 'top.zibin:Luban:1.1.8'
     implementation 'com.google.android.gms:play-services-base:17.2.1'

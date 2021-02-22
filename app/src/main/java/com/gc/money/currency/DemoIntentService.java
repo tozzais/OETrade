@@ -155,11 +155,9 @@ public class DemoIntentService extends GTIntentService {
 
     @NonNull
     private PendingIntent setPendingIntent(Context context, PushMessage data) {
-        Intent intent = new Intent();
+        Intent intent ;
         String url = data.getUrl();
         if (TextUtils.isEmpty(url)) {//url为空时启动app
-//            intent.setClassName("com.gaocheng.digital.coin","com.gaocheng.digital.coin.MineDataActivity");
-
             Uri uri=Uri.parse("app://test");
             intent=new Intent(Intent.ACTION_VIEW,uri);
 

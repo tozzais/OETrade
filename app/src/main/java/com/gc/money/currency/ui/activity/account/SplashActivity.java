@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.KeyboardUtils;
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.PhoneUtils;
 import com.gc.money.currency.MainActivity;
 import com.gc.money.currency.R;
 import com.gc.money.currency.bean.VestBean;
@@ -27,6 +32,7 @@ import com.gc.money.currency.http.Response;
 import com.gc.money.currency.ui.H5Activity;
 import com.gc.money.currency.ui.WebViewActivity;
 import com.gc.money.currency.util.DeviceUtil;
+import com.gc.money.currency.util.PhotoUtils;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailabilityLight;
@@ -108,8 +114,10 @@ public class SplashActivity extends CheckPermissionActivity {
     }
 
     private void getData(){
+        String appVersionName = AppUtils.getAppVersionName();
+        LogUtils.eTag("appVersionName",appVersionName);
         TreeMap<String, String> hashMap = new TreeMap<>();
-        hashMap.put("version", "1.5");
+        hashMap.put("version", appVersionName);
         hashMap.put("channelCode", "google");
         hashMap.put("vestCode", HttpUrl.vest_code);
         String deviceId = DeviceUtil.getDeviceId();
@@ -121,13 +129,7 @@ public class SplashActivity extends CheckPermissionActivity {
                     @Override
                     public void onNext(VestResult result) {
                         data = result.data;
-                        LogUtil.e("onNext"+data.toString());
                         shopPrivacy();
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        LogUtil.e("onNext"+e.getMessage());
-//                        MainActivity.launch(mActivity);
                     }
                 });
     }

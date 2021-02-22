@@ -1,42 +1,41 @@
 {
   "project_info": {
-    "project_number": "339339407432",
-    "firebase_url": "https://digital-coin-1586507622700.firebaseio.com",
-    "project_id": "digital-coin-1586507622700",
-    "storage_bucket": "digital-coin-1586507622700.appspot.com"
+    "project_number": "425921869581",
+    "project_id": "oe-trade",
+    "storage_bucket": "oe-trade.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:339339407432:android:55c83bd53458aecc4a287d",
+        "mobilesdk_app_id": "1:425921869581:android:4eed2307df6ddfc9dbe244",
         "android_client_info": {
           "package_name": "com.gc.money.currency"
         }
       },
       "oauth_client": [
         {
-          "client_id": "339339407432-0ri04la663inm94tnu76653lqfadivt5.apps.googleusercontent.com",
+          "client_id": "425921869581-5rlj9bu5v8lbsveg11518ot2gmi2ovk4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.gc.money.currency",
-            "certificate_hash": "859d0fd6359dfce5b7fbab8fd1bb1c36c105469e"
+            "certificate_hash": "17b35714a3fa3ff01d00d3ff8dbd6a6e58fc33ef"
           }
         },
         {
-          "client_id": "339339407432-s0np3phfe49f25kirrqplp7kijq63726.apps.googleusercontent.com",
+          "client_id": "425921869581-kokvi1qaor1o3k4pot24vnsu8ig7c8fk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCOs4kY9aWunEZiIFvVqwVL2u3Mitm54RU"
+          "current_key": "AIzaSyCRgUnZ58fhA05hqmPG8krzDnkYawCApFE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "339339407432-s0np3phfe49f25kirrqplp7kijq63726.apps.googleusercontent.com",
+              "client_id": "425921869581-kokvi1qaor1o3k4pot24vnsu8ig7c8fk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

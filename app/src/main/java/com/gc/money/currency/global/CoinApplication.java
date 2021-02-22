@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
@@ -13,11 +14,14 @@ import androidx.annotation.Nullable;
 
 import com.adjust.sdk.Adjust;
 import com.adjust.sdk.AdjustConfig;
+import com.blankj.utilcode.util.LogUtils;
 import com.chad.library.adapter.base.module.LoadMoreModuleConfig;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.gc.money.currency.BuildConfig;
 import com.gc.money.currency.DemoIntentService;
 import com.gc.money.currency.DemoPushService;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
@@ -40,6 +44,11 @@ public class CoinApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+
+        LogUtils.getConfig().setLogSwitch(BuildConfig.DEBUG);
+
         // 在 Application 中配置全局自定义的 LoadMoreView
         LoadMoreModuleConfig.setDefLoadMoreView(new CustomLoadMoreView());
 
