@@ -73,14 +73,9 @@ public class H5Activity extends CheckPermissionActivity {
         return R.layout.activity_h5_detail;
     }
 
-    @Override
-    protected int getToolbarLayout() {
-        return -1;
-    }
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
 
         WebSettings webSettings = web_view.getSettings();
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
@@ -122,8 +117,19 @@ public class H5Activity extends CheckPermissionActivity {
             }
         });
         web_view.loadUrl(getIntent().getStringExtra("h5Url"));
+        //监听WebView是否加载完成网页
+        web_view.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                setBackTitle(view.getTitle());
+                showTitleBar(false);
+
+
+            }
+
+        });
         web_view.setWebChromeClient(new WebChrome());
-        web_view.setWebViewClient(new WebViewClient());
 
         //谷歌登录
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -146,6 +152,12 @@ public class H5Activity extends CheckPermissionActivity {
             return true;
 
         }
+    }
+
+    public void showTitleBar(boolean visible){
+        runOnUiThread(() -> getToolbar().setVisibility(visible?View.VISIBLE:View.GONE));
+
+
     }
 
     @Override

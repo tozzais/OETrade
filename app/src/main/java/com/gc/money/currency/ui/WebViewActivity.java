@@ -26,8 +26,8 @@ public class WebViewActivity extends BaseActivity {
     @BindView(R.id.web_view)
     WebView web_view;
 
-    String url = "";
-    int status = 1; // 0 是无链接 1是超链接 2 是图文详情3：商品 4:商家
+    private String url = "";
+    private WebBean webBean;
 
     public static final int GRAPHIC = 2;
     @BindView(R.id.progress)
@@ -41,12 +41,9 @@ public class WebViewActivity extends BaseActivity {
         from.startActivity(intent);
     }
 
-
-    public static void launch(Context from, String title, String url, int status) {
+    public static void launch(Context from, WebBean webBean) {
         Intent intent = new Intent(from, WebViewActivity.class);
-        intent.putExtra("title", title);
-        intent.putExtra("url", url);
-        intent.putExtra("status", status);
+        intent.putExtra("webBean", webBean);
         from.startActivity(intent);
     }
 
@@ -64,48 +61,33 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     public void loadData() {
-        String title = getIntent().getStringExtra("title");
-        url = getIntent().getStringExtra("url");
-        status = getIntent().getIntExtra("status", 1);
-
-
         WebSettings webSettings = web_view.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        if (status == 1) {
-            web_view.loadUrl(url);
-            //监听WebView是否加载完成网页
-            web_view.setWebViewClient(new WebViewClient() {
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    super.onPageFinished(view, url);
+
+        url = getIntent().getStringExtra("url");
+         webBean = getIntent().getParcelableExtra("webBean");
+        if (webBean == null){
+            webBean = new WebBean();
+            webBean.url = url;
+            webBean.rewriteTitle = true;
+        }
+
+        web_view.loadUrl(webBean.url);
+        //监听WebView是否加载完成网页
+        web_view.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (!webBean.rewriteTitle){
+                    setBackTitle(webBean.title);
+                }else {
                     setBackTitle(view.getTitle());
                 }
 
-            });
+            }
 
-        } else if (status == GRAPHIC) {
-            setBackTitle(title);
-//            String data = Html.fromHtml(url).toString();
-            String varjs = "<script type='text/javascript'> \nwindow.onload = function()\n{var $img = document.getElementsByTagName('img');for(var p in  $img){$img[p].style.width = '100%'; $img[p].style.height ='auto'}}</script>";
-            web_view.loadDataWithBaseURL("", varjs + url, "text/html", "UTF-8", null);
-//            String html = "<html><body><img src=" + url + " width=100% height=100%/></body></html>";
-//            web_view.loadData(Html.fromHtml(url).toString(), "text/html", "UTF-8");
-//            web_view.loadData(url, "text/html",  "UTF-8");
+        });
 
-            web_view.setWebViewClient(new WebViewClient() {
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    // html加载完成之后，无网隐藏进度条
-                    if (!NetworkUtil.isNetworkAvailable(mActivity)) {
-                        mProgress.hide();
-                    }
-                    super.onPageFinished(view, url);
-                }
-
-
-            });
-            web_view.setWebChromeClient(new WebChromeClient());
-        }
 
         //显示进度条
         mProgress.show();
@@ -246,7 +228,6 @@ public class WebViewActivity extends BaseActivity {
         float scale = this.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale);
     }
-
 
 
 }

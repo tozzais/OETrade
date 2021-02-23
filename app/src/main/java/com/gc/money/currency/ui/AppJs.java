@@ -1,51 +1,136 @@
 package com.gc.money.currency.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
 
+import androidx.annotation.Nullable;
+
 import com.adjust.sdk.Adjust;
 import com.adjust.sdk.AdjustEvent;
+import com.blankj.utilcode.util.LogUtils;
 import com.facebook.appevents.AppEventsLogger;
 import com.gc.money.currency.global.CoinApplication;
 import com.gc.money.currency.util.DeviceUtil;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.installations.FirebaseInstallations;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.igexin.sdk.PushManager;
 import com.tozzais.baselibrary.util.log.LogUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Set;
 
 import io.branch.referral.util.BranchEvent;
 
-public class AppJs  extends Object {
+public class AppJs {
+
+
     private H5Activity h5Activity;
+
     public AppJs(H5Activity h5Activity) {
         this.h5Activity = h5Activity;
     }
+
+    public static final String FORBID_BACK_FOR_JS = "forbidBackForJS";
+    public static final String GET_DEVICE_ID = "getDeviceId";
+    public static final String GET_GA_ID = "getGaId";
+    public static final String GET_GOOGLE_ID = "getGoogleId";
+    public static final String IS_CONTAINS_NAME = "isContainsName";
+    public static final String OPEN_BROWSER = "openBrowser";
+    public static final String OPEN_GOOGLE = "openGoogle";
+    public static final String OPEN_PAY_TM = "openPayTm";
+    public static final String OPEN_PURE_BROWSER = "openPureBrowser";
+    public static final String SHOULD_FORBID_SYS_BACK_PRESS = "shouldForbidSysBackPress";
+    public static final String SHOW_TITLE_BAR = "showTitleBar";
+    public static final String TAKE_CHANNEL = "takeChannel";
+    public static final String TAKE_FCM_PUSH_ID = "takeFCMPushId";
+    public static final String TAKE_PORTRAIT_PICTURE = "takePortraitPicture";
+    public static final String TAKE_PUSH_ID = "takePushId";
+
+    @JavascriptInterface
+    @Nullable
+    public String callMethod(String data) {
+        LogUtils.eTag("callMethod", data);
+        try {
+            JSONObject dataObj = new JSONObject(data);
+            String methodName = dataObj.optString("name");
+            JSONObject paraObj = dataObj.optJSONObject("parameter");
+            String paraStr = dataObj.optString("parameter");
+            switch (methodName) {
+                case GET_DEVICE_ID:
+                    return getDeviceId();
+                case OPEN_PAY_TM:
+                    openPayTm(paraObj.toString());
+                    break;
+                case SHOW_TITLE_BAR:
+                    showTitleBar(Boolean.valueOf(paraStr));
+                    break;
+                case FORBID_BACK_FOR_JS:
+                    forbidBackForJS(paraObj.getInt("forbid"),paraObj.getString("callbackMethod"));
+                    break;
+                case GET_GA_ID:
+                    return getGaId();
+                case GET_GOOGLE_ID:
+                    return getGoogleId();
+                case OPEN_BROWSER:
+                    openBrowser(paraStr);
+                    break;
+                case OPEN_GOOGLE:
+                    openGoogle(paraObj.toString());
+                    break;
+                case OPEN_PURE_BROWSER:
+                    openPureBrowser(paraObj.toString());
+                    break;
+                case SHOULD_FORBID_SYS_BACK_PRESS:
+                    shouldForbidSysBackPress(paraObj.getInt("forbid"));
+                    break;
+                case TAKE_CHANNEL:
+                    return takeChannel();
+                case TAKE_FCM_PUSH_ID:
+                    return takeFCMPushId();
+                case TAKE_PORTRAIT_PICTURE:
+                    takePortraitPicture(paraStr);
+                    break;
+                case TAKE_PUSH_ID:
+                    return takePushId();
+                default:
+                    return null;
+            }
+        } catch (JSONException e) {
+            return null;
+        }
+        return null;
+    }
+
+
+
+    @JavascriptInterface
+    public String isNewEdition() {
+        return "true";
+    }
+
 
 
     /**
      * 获取设备id
      * 自己组合获取唯一设备id
      */
-    @SuppressLint("MissingPermission")
-    @android.webkit.JavascriptInterface
+    @JavascriptInterface
     public String getDeviceId() {
         return DeviceUtil.getDeviceId();
     }
 
 
-
     /**
      * 就是设备id 同getDeviceId()
      */
-    @android.webkit.JavascriptInterface
+    @JavascriptInterface
     public String getGoogleId() {
         return getDeviceId();
     }
@@ -83,28 +168,31 @@ public class AppJs  extends Object {
         AdjustEvent adjustEvent = new AdjustEvent(eventToken);
         Adjust.trackEvent(adjustEvent);
     }
+
     /**
      * branch事件统计
+     *
      * @param eventName 统计事件名称
      */
     @JavascriptInterface
-    public void  branchEvent(String eventName) {
+    public void branchEvent(String eventName) {
         new BranchEvent(eventName)
                 .logEvent(h5Activity);
     }
 
     /**
      * branch事件统计
-     * @param eventName 统计时间名称
+     *
+     * @param eventName  统计时间名称
      * @param parameters 自定义统计参数
      */
     @JavascriptInterface
-    public void   branchEvent( String eventName, String parameters) {
+    public void branchEvent(String eventName, String parameters) {
         BranchEvent branchEvent = new BranchEvent(eventName);
         JsonObject obj = new JsonObject().getAsJsonObject(parameters);
         Bundle bundle = new Bundle();
         Set<String> strings = obj.keySet();
-        for (String entry: strings){
+        for (String entry : strings) {
             JsonElement value = obj.get(entry);
             bundle.putString(entry, value.getAsString());
             branchEvent.addCustomDataProperty(
@@ -118,16 +206,17 @@ public class AppJs  extends Object {
 
     /**
      * branch事件统计
-     * @param eventName 统计事件名称
+     *
+     * @param eventName  统计事件名称
      * @param parameters 自定义统计参数
-     * @param alias 事件别名
+     * @param alias      事件别名
      */
     @JavascriptInterface
-    public void    branchEvent(String eventName,String parameters,String alias) {
-        BranchEvent branchEvent =new  BranchEvent(eventName);
+    public void branchEvent(String eventName, String parameters, String alias) {
+        BranchEvent branchEvent = new BranchEvent(eventName);
         JsonObject obj = new JsonObject().getAsJsonObject(parameters);
         Bundle bundle = new Bundle();
-        for (String entry: obj.keySet()){
+        for (String entry : obj.keySet()) {
             JsonElement value = obj.get(entry);
             bundle.putString(entry, value.getAsString());
             branchEvent.addCustomDataProperty(
@@ -142,16 +231,17 @@ public class AppJs  extends Object {
 
     /**
      * facebook事件统计
-     * @param eventName 事件名称
+     *
+     * @param eventName  事件名称
      * @param valueToSum 计数数值
      * @param parameters 自定义统计参数json{}需要全是String类型
      */
     @JavascriptInterface
-    public void    facebookEvent(String eventName, Double valueToSum,String parameters) {
+    public void facebookEvent(String eventName, Double valueToSum, String parameters) {
         AppEventsLogger logger = AppEventsLogger.newLogger(h5Activity);
         JsonObject obj = new JsonObject().getAsJsonObject(parameters);
         Bundle bundle = new Bundle();
-        for (String entry: obj.keySet()){
+        for (String entry : obj.keySet()) {
             JsonElement value = obj.get(entry);
             bundle.putString(entry, value.getAsString());
 
@@ -161,16 +251,17 @@ public class AppJs  extends Object {
 
     /**
      * facebook事件统计
-     * @param eventName 事件名称
+     *
+     * @param eventName  事件名称
      * @param parameters 自定义统计参数json{}需要全是String类型
      */
     @JavascriptInterface
-    public void   facebookEvent(String eventName, String parameters) {
+    public void facebookEvent(String eventName, String parameters) {
 
         AppEventsLogger logger = AppEventsLogger.newLogger(h5Activity);
         JsonObject obj = new JsonObject().getAsJsonObject(parameters);
         Bundle bundle = new Bundle();
-        for (String entry: obj.keySet()){
+        for (String entry : obj.keySet()) {
             JsonElement value = obj.get(entry);
             bundle.putString(entry, value.getAsString());
         }
@@ -179,21 +270,23 @@ public class AppJs  extends Object {
 
     /**
      * facebook计数统计
-     * @param eventName 事件名称
+     *
+     * @param eventName  事件名称
      * @param valueToSum 计数数值
      */
     @JavascriptInterface
-    public void   facebookEvent(String eventName, Double valueToSum) {
+    public void facebookEvent(String eventName, Double valueToSum) {
         AppEventsLogger logger = AppEventsLogger.newLogger(h5Activity);
         logger.logEvent(eventName, valueToSum);
     }
 
     /**
      * facebook 计数事件统计
+     *
      * @param eventName 事件名称
      */
     @JavascriptInterface
-    public void   facebookEvent(String eventName) {
+    public void facebookEvent(String eventName) {
         AppEventsLogger logger = AppEventsLogger.newLogger(h5Activity);
         logger.logEvent(eventName);
     }
@@ -203,9 +296,9 @@ public class AppJs  extends Object {
      */
     @JavascriptInterface
     public void firebaseEvent(String category, String parameters) {
-        JsonObject obj =new  JsonObject().getAsJsonObject(parameters);
-        Bundle bundle =new  Bundle();
-        for (String entry: obj.keySet()){
+        JsonObject obj = new JsonObject().getAsJsonObject(parameters);
+        Bundle bundle = new Bundle();
+        for (String entry : obj.keySet()) {
             JsonElement value = obj.get(entry);
             bundle.putString(entry, value.getAsString());
         }
@@ -214,20 +307,23 @@ public class AppJs  extends Object {
 
     /**
      * adjust事件统计
+     *
      * @param eventToken 统计时间名称
      * @param valueToSum 收入
-     * @param currency 货币名
+     * @param currency   货币名
      */
     @JavascriptInterface
-    public void  adjustTrackEvent(String eventToken, Double valueToSum, String currency) {
+    public void adjustTrackEvent(String eventToken, Double valueToSum, String currency) {
 
         AdjustEvent adjustEvent = new AdjustEvent(eventToken);
         adjustEvent.setRevenue(valueToSum, currency);
         Adjust.trackEvent(adjustEvent);
     }
+
     /**
      * 调取谷歌
-     *  @param data {"sign":"","host":"https://bb.skr.today"}
+     *
+     * @param data {"sign":"","host":"https://bb.skr.today"}
      */
     @JavascriptInterface
     public void openGoogle(String data) {
@@ -242,7 +338,6 @@ public class AppJs  extends Object {
      */
     @JavascriptInterface
     public void openPayTm(String data) {
-        LogUtil.e(data);
         if (h5Activity instanceof H5Activity) {
             h5Activity.pay(data);
         }
@@ -310,21 +405,26 @@ public class AppJs  extends Object {
         }
     }
 
-//    @JavascriptInterface
+    //    @JavascriptInterface
 //    public void isContainsName(String url) {
 //
 //    }
     @JavascriptInterface
     public void openPureBrowser(String json) {
+        Gson gson = new Gson();
+        WebBean webBean = gson.fromJson(json, WebBean.class);
+        WebViewActivity.launch(h5Activity,webBean);
 
     }
-//    @JavascriptInterface
-//    public void showTitleBar(String url) {
-//
-//    }
+
+    @JavascriptInterface
+    public void showTitleBar(boolean visible) {
+        h5Activity.showTitleBar(visible);
+
+    }
     @JavascriptInterface
     public String takeFCMPushId() {
-      return FirebaseInstanceId.getInstance().getToken();
+        return FirebaseInstanceId.getInstance().getToken();
 
     }
 }

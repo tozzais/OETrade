@@ -86,9 +86,9 @@ public class CoinApplication extends Application {
 //        });
 
         // Facebook统计开启
-        FacebookSdk.setApplicationId("3155578127837674");
+        FacebookSdk.setApplicationId("1129629230835543");
         FacebookSdk.sdkInitialize(this);
-        AppEventsLogger.initializeLib(this,"3155578127837674");
+        AppEventsLogger.initializeLib(this,"1129629230835543");
         AppEventsLogger.activateApp(this);
 
     }
