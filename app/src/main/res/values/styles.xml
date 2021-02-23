@@ -22,7 +22,7 @@
         <item name="colorPrimaryDark">@color/baseColor</item>
         <item name="colorAccent">@color/baseColor</item>
         <item name="android:windowAnimationStyle">@style/Animation_Activity</item>
-        <item name="android:windowBackground">@mipmap/splash</item>
+        <item name="android:windowBackground">@drawable/news_tab_item_bg_select</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
