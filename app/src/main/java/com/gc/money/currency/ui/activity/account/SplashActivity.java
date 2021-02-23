@@ -115,7 +115,6 @@ public class SplashActivity extends CheckPermissionActivity {
 
     private void getData(){
         String appVersionName = AppUtils.getAppVersionName();
-        LogUtils.eTag("appVersionName",appVersionName);
         TreeMap<String, String> hashMap = new TreeMap<>();
         hashMap.put("version", appVersionName);
         hashMap.put("channelCode", "google");

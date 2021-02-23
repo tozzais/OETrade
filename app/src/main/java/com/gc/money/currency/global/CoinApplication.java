@@ -90,7 +90,6 @@ public class CoinApplication extends Application {
         FacebookSdk.sdkInitialize(this);
         AppEventsLogger.initializeLib(this,"1129629230835543");
         AppEventsLogger.activateApp(this);
-
     }
     private static final class AdjustLifecycleCallbacks implements ActivityLifecycleCallbacks {
         @Override

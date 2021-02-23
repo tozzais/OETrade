@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.gc.money.currency.R;
 import com.gc.money.currency.bean.PushMessage;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -30,8 +31,9 @@ public class MyFirebaseMessagingService  extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+
         Map<String, String> data = remoteMessage.getData();
-        if (data.isEmpty()) {
+        if (!data.isEmpty()) {
             Gson gson = new Gson();
             PushMessage pushMessage = gson.fromJson(data.get("data"), PushMessage.class);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

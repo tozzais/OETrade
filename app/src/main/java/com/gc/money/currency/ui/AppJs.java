@@ -72,7 +72,10 @@ public class AppJs {
                     showTitleBar(Boolean.valueOf(paraStr));
                     break;
                 case FORBID_BACK_FOR_JS:
-                    forbidBackForJS(paraObj.getInt("forbid"),paraObj.getString("callbackMethod"));
+                    forbidBackForJS(paraObj.getInt("param2"), paraObj.getString("param1"));
+                    break;
+                case IS_CONTAINS_NAME:
+                    isContainsName(paraObj.getString("param1"), paraObj.getString("param2"));
                     break;
                 case GET_GA_ID:
                     return getGaId();
@@ -109,12 +112,10 @@ public class AppJs {
     }
 
 
-
     @JavascriptInterface
     public String isNewEdition() {
         return "true";
     }
-
 
 
     /**
@@ -405,15 +406,37 @@ public class AppJs {
         }
     }
 
-    //    @JavascriptInterface
-//    public void isContainsName(String url) {
-//
-//    }
+    @JavascriptInterface
+    public void isContainsName(String callbackMethod, String name) {
+        boolean has = false;
+        switch (name) {
+            case FORBID_BACK_FOR_JS:
+            case GET_DEVICE_ID:
+            case GET_GA_ID:
+            case GET_GOOGLE_ID:
+            case IS_CONTAINS_NAME:
+            case OPEN_BROWSER:
+            case OPEN_GOOGLE:
+            case OPEN_PAY_TM:
+            case OPEN_PURE_BROWSER:
+            case SHOULD_FORBID_SYS_BACK_PRESS:
+            case SHOW_TITLE_BAR:
+            case TAKE_CHANNEL:
+            case TAKE_FCM_PUSH_ID:
+            case TAKE_PORTRAIT_PICTURE:
+            case TAKE_PUSH_ID:
+                has = true;
+                break;
+        }
+        h5Activity.isContainName(callbackMethod,has);
+
+    }
+
     @JavascriptInterface
     public void openPureBrowser(String json) {
         Gson gson = new Gson();
         WebBean webBean = gson.fromJson(json, WebBean.class);
-        WebViewActivity.launch(h5Activity,webBean);
+        WebViewActivity.launch(h5Activity, webBean);
 
     }
 
@@ -422,6 +445,7 @@ public class AppJs {
         h5Activity.showTitleBar(visible);
 
     }
+
     @JavascriptInterface
     public String takeFCMPushId() {
         return FirebaseInstanceId.getInstance().getToken();
