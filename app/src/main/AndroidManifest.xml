@@ -104,6 +104,7 @@
 
 
         <activity android:name=".ui.H5Activity"/>
+        <activity android:name=".ui.H5Activity1"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".ui.activity.MineDataActivity"/>
         <activity android:name=".ui.WebViewPayActivity"/>

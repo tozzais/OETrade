@@ -7,9 +7,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -17,9 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.gc.money.currency.R;
 import com.gc.money.currency.bean.PushMessage;
+import com.gc.money.currency.ui.H5Activity;
+import com.gc.money.currency.ui.H5Activity1;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.google.gson.Gson;
@@ -87,12 +88,11 @@ public class MyFirebaseMessagingService  extends FirebaseMessagingService {
         Intent intent ;
         String url = data.getUrl();
         if (TextUtils.isEmpty(url)) {//url为空时启动app
-            Uri uri=Uri.parse("app://test");
-            intent=new Intent(Intent.ACTION_VIEW,uri);
-
+            PackageManager packageManager = context.getPackageManager();
+            intent = packageManager.getLaunchIntentForPackage(context.getPackageName());
         } else {//不为空打开web页面
-            Uri uri = Uri.parse(url);
-            intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent = new Intent(context, H5Activity1.class);
+            intent.putExtra("h5Url", url);
         }
         if (intent != null) {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

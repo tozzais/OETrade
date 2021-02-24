@@ -2,14 +2,18 @@ package com.gc.money.currency.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.gc.money.currency.R;
 import com.tozzais.baselibrary.ui.BaseActivity;
 import com.tozzais.baselibrary.util.NetworkUtil;
@@ -72,6 +76,7 @@ public class WebViewActivity extends BaseActivity {
             webBean.rewriteTitle = true;
         }
 
+        LogUtils.eTag("测试地址",webBean.url);
         web_view.loadUrl(webBean.url);
         //监听WebView是否加载完成网页
         web_view.setWebViewClient(new WebViewClient() {
@@ -83,9 +88,13 @@ public class WebViewActivity extends BaseActivity {
                 }else {
                     setBackTitle(view.getTitle());
                 }
-
             }
 
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//                super.onReceivedSslError(view, handler, error);
+                handler.proceed();
+            }
         });
 
 

@@ -19,8 +19,7 @@ public class LogUtil {
      * @return
      */
     public static boolean isDebuggable() {
-//        return BuildConfig.DEBUG;
-        return false;
+        return BuildConfig.DEBUG;
     }
 
     private static String createLog(String log ) {
