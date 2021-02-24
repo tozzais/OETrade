@@ -149,17 +149,14 @@ public class H5Activity extends CheckPermissionActivity {
     }
 
     public void isContainName(String callbackMethod, boolean has) {
-        StringBuilder builder = new StringBuilder(callbackMethod).append("(");
-        builder.append("'").append(has).append("'");
-        builder.append(")");
-        String methodName = builder.toString();
-        String javaScript = "javascript:" + methodName;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            web_view.evaluateJavascript(javaScript, null);
-        } else {
-            web_view.loadUrl(javaScript);
-        }
-
+        runOnUiThread(() -> {
+            String javaScript = "javascript:" + callbackMethod + "(" + has + ")";
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                web_view.evaluateJavascript(javaScript, null);
+            } else {
+                web_view.loadUrl(javaScript);
+            }
+        });
     }
 
     public class WebChrome extends WebChromeClient {

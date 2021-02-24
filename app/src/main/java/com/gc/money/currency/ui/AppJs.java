@@ -407,7 +407,7 @@ public class AppJs {
     }
 
     @JavascriptInterface
-    public void isContainsName(String callbackMethod, String name) {
+    public boolean isContainsName(String callbackMethod, String name) {
         boolean has = false;
         switch (name) {
             case FORBID_BACK_FOR_JS:
@@ -428,7 +428,8 @@ public class AppJs {
                 has = true;
                 break;
         }
-        h5Activity.isContainName(callbackMethod,has);
+        h5Activity.isContainName(callbackMethod,false);
+        return true;
 
     }
 
