@@ -31,7 +31,7 @@
     <TextView
         android:id="@+id/tv_time"
         style="@style/base_text_style_gray_small"
-        android:text="Version 1.0.0"
+        android:text="Version 1.0"
         android:textStyle="bold"
         android:layout_centerInParent="true"
         />
@@ -41,14 +41,15 @@
         android:id="@+id/tv_content"
         style="@style/base_text_style"
         android:lineSpacingExtra="5dp"
-        android:text="Fire Option, the entrance to the blockchain world of bitcoin, wipes out high-quality news such as new business, new technology, new venture capital, new workplace, etc. Products and services.
-Currency Quotes
-Track currency, in-depth tracking of currency news, currency community discussions, currency market, easy to check the news of each currency.
-24h Express Courier
-24-hour latest blockchain information, real-time notification, easy to understand, to help you quickly know the latest developments in the chain.
-Blockchain news
-Collect blockchain news information on the whole network and select the latest and most important news recommendations. Provide the trading volume of the major platforms in the blockchain industry and understand the industry currency circle information.
-"
+        android:text="Real-time customisable charts with over 60 technical indicators, rate alerts, analysis, a  full range of order types and more - all delivered in a fully customisable, intuitive, and  stable app that lets you trade wherever you go.\nUseful Functions:
+- Powerful advanced charting powered by TradingView\n
+- Over 60 customisable technical indicators and over 50 advanced drawing tools \n
+- Choose from 14 types of chart including candlestick, bar, line, renko and mountain charts\n
+- Overlay multiple markets on a single chart to identify correlations\n
+- Easily place trades, view positions and orders on the charts\n
+- Customisable light and dark themes \n
+
+With the app you can trade forex in an easier way!"
         android:layout_margin="12dp"
         android:layout_centerInParent="true"
         />

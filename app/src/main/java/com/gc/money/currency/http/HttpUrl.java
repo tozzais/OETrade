@@ -7,6 +7,8 @@ public interface HttpUrl {
 
 
 
+    String Privacy_Policy = "https://www.websitepolicies.com/policies/view/4DwgZTsy";
+
     String inform_url = "https://www.coindesk.com/";
     String bit_url = "https://uc.gzsycs.com/";
 

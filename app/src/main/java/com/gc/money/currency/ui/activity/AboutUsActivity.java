@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.AppUtils;
 import com.gc.money.currency.R;
 import com.tozzais.baselibrary.ui.BaseActivity;
 
@@ -36,7 +37,7 @@ public class AboutUsActivity extends BaseActivity {
 
     @Override
     public void loadData() {
-
+        tvTime.setText("Version "+AppUtils.getAppVersionName());
     }
 
 
